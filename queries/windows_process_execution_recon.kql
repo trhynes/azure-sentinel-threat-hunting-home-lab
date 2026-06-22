@@ -1,0 +1,5 @@
+SecurityEvent
+| where EventID == 4688
+| where CommandLine has_any ("whoami", "ipconfig", "net user", "powershell", "cmd")
+| project TimeGenerated, Account, CommandLine, NewProcessName
+| order by TimeGenerated desc

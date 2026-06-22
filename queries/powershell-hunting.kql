@@ -1,0 +1,4 @@
+SecurityEvent
+| where Process has "powershell"
+| project TimeGenerated, Account, Computer, Process, CommandLine
+| order by TimeGenerated desc

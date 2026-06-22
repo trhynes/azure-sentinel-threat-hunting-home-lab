@@ -1,0 +1,8 @@
+SecurityEvent
+| where EventID == 4688
+| where CommandLine has_any ("whoami","ipconfig","net user","hostname","systeminfo")
+| project TimeGenerated,
+          Computer,
+          Account,
+          CommandLine,
+          NewProcessName
